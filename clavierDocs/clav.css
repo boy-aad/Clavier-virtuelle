@@ -104,3 +104,41 @@ textarea {
 .keyboard__key--dark {
     background: rgba(0, 0, 0, 0.25);
 }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .keyboard__key {
+        width: 10%;
+        font-size: 0.9rem;
+    }
+
+    .keyboard__key--wide {
+        width: 20%;
+    }
+
+    .keyboard__key--extra-wide {
+        width: 60%;
+    }
+
+    .container {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .keyboard__key {
+        width: 15%;
+        font-size: 0.8rem;
+    }
+
+    .keyboard__key--wide {
+        width: 30%;
+    }
+
+    .keyboard__key--extra-wide {
+        width: 80%;
+    }
+
+    .container {
+        font-size: 1em;
+    }
+}
