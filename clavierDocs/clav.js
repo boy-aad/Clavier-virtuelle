@@ -1,7 +1,7 @@
 const Keyboard = {
     elements: {
         main: null,
-        keyboardContainer: null,
+        keysContainer: null,
         keys: []
     },
 
@@ -18,20 +18,20 @@ const Keyboard = {
     init() {
         // Create main elements
         this.elements.main = document.createElement("div");
-        this.elements.keyboardContainer = document.createElement("div");
+        this.elements.keysContainer = document.createElement("div");
 
         // Setup main elements
-        this.elements.main.classList.add("keyboard", "clavier--hidden");
-        this.elements.keyboardContainer.classList.add("keyboard__keys");
-        this.elements.keyboardContainer.appendChild(this._createKeys());
+        this.elements.main.classList.add("keyboard", "keyboard--hidden");
+        this.elements.keysContainer.classList.add("keyboard__keys");
+        this.elements.keysContainer.appendChild(this._createKeys());
 
-        this.elements.keys = this.elements.keyboardContainer.querySelectorAll(".keyboard__key");
+        this.elements.keys = this.elements.keysContainer.querySelectorAll(".keyboard__key");
 
         // Add to DOM
-        this.elements.main.appendChild(this.elements.keyboardContainer);
+        this.elements.main.appendChild(this.elements.keysContainer);
         document.body.appendChild(this.elements.main);
 
-        // Automatically use clavier for elements with .use-clavier-input
+        // Automatically use keyboard for elements with .use-keyboard-input
         document.querySelectorAll(".use-keyboard-input").forEach(element => {
             element.addEventListener("focus", () => {
                 this.open(element.value, currentValue => {
@@ -50,17 +50,62 @@ const Keyboard = {
             "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
             "space"
         ];
-
-        //pour les icons
+       
+        // Creates HTML for an icon
         const createIconHTML = (icon_name) => {
             return `<i class="material-icons">${icon_name}</i>`;
         };
 
+        // style for the keys of the keyboard avec keydown et keyup
+
+        
+       
+
+        // checkbox for dark  and light mode
+        let monClavier = document.getElementsByClassName('keyboard');
+        let touches = document.getElementsByClassName('keyboard__key', '.keyboard__key--dark');
+        let checkbox = document.getElementById('checkbox');
+        checkbox.addEventListener('click', function () {
+            if (checkbox.checked) { 
+                for (let i = 0; i < touches.length; i++) {
+                    touches[i].style.background = "white";
+                    touches[i].style.color = "black";
+                    touches[i].style.transition = "0.4s";
+                }
+                monClavier[0].style.background = "#363939";
+                monClavier[0].style.color = "black";
+
+              
+            } else {
+                for (let i = 0; i < touches.length; i++) {
+                    touches[i].style.background = "#363939";
+                    touches[i].style.color = "white";
+                    touches[i].style.transition = "0.4s";
+                }
+                monClavier[0].style.background = "white";
+                monClavier[0].style.color = "black";
+            }
+    
+        });
+
+
+        
+        // ajout de la sonorisation des touches
+        document.addEventListener('keydown', (e) => {
+                const audio = new Audio('clavSound.mp3'); 
+                audio.volume = 0.1; 
+                audio.play();
+                audio.loop = false;
+                audio.currentTime = 0;
+        }
+        );
+        // Creates HTML for an icon
+        
         keyLayout.forEach(key => {
             const keyElement = document.createElement("button");
             const insertLineBreak = ["backspace", "p", "enter", "?"].indexOf(key) !== -1;
 
-            // ajout des attributs/classes
+            // Add attributes/classes
             keyElement.setAttribute("type", "button");
             keyElement.classList.add("keyboard__key");
 

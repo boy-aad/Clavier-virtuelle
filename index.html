@@ -1,23 +1,44 @@
 <!DOCTYPE html>
-<head>
+<html lang="fr">
+  <head>
     <title>2AD's Virtual Keyboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="clavierDocs/clav.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="clavierDocs/clav.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-  <div class="container">
-    <h1 style="color: #ffffff95;">🚀2AD code zone 💻✨</h1>
-    <p> Write whatever you want boie 😊 </p>
-    <textarea class="use-keyboard-input" style= "width: 600px;"  rows="5" ></textarea>
-  </div>
+  <body>
+    <header>
+      <div class="header-container">
+        <details>
+          <summary style="color: #ffffff; margin-bottom: 5px; font-size: 1.2rem;">
+            Changer de théme </summary>
+             <input type="checkbox" id="checkbox" name="checkbox" />
+        <label for="checkbox" class="label"></label>
+          
+        </details>
+       
+        
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h1 style="color: #ffffff; font-size: 1.3em;">🚀2AD code zone 💻✨</h1>
+        <p style="font-style: italic;">Write whatever you want boie 😊</p>
+        <textarea
+          class="use-keyboard-input"
+          style="width: 600px"
+          rows="5"
+          contenteditable="true"
+          id="textArea"
+        ></textarea>
+      </div>
+    </main>
 
     <script src="clavierDocs/clav.js"></script>
-    <footer>
-  <h3 style = "color: #ffffff69 ; text-align: center;">By 2AD code !!!</h3>
-</footer>
-</body>
-
+  </body>
 </html>
